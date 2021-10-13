@@ -16,7 +16,7 @@ import com.example.demo.model.ModelType;
 import com.example.demo.utils.ConnectionModel;
 
 @RestController
-@RequestMapping("/api/v1/salons")
+@RequestMapping("/api/v1/salon")
 public class SalonController {
 	@GetMapping("/mumbai")
     public ResponseEntity<List<ModelType>> getAll(){
