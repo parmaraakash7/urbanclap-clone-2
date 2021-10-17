@@ -3,12 +3,24 @@ package com.example.demo.utils;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.net.*;
 
 public class ConnectionModel {
 	static public int FIVE_KM = 2000;
+<<<<<<< HEAD
 	static public Connection getConnection() throws SQLException {
+=======
+	static public Connection getConnection() throws Exception {
+>>>>>>> 71c9a3613c1a82c5e35c656038b1953f37d49861
 		Connection c = null;
-		c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/urbanclap-clone2","postgres", "aakash@123");
+// 		c = DriverManager.getConnection("jdbc:postgresql://localhost:5432/urbanclap-clone1","postgres", "aakash@123");
+		URI dbUri = new URI(System.getenv("DATABASE_URL"));
+
+		    String username = dbUri.getUserInfo().split(":")[0];
+		    String password = dbUri.getUserInfo().split(":")[1];
+		    String dbUrl = "jdbc:postgresql://" + dbUri.getHost() + ':' + dbUri.getPort() + dbUri.getPath() + "?ssl=true&sslfactory=org.postgresql.ssl.NonValidatingFactory";
+            
+            	c = DriverManager.getConnection(dbUrl, username, password);
 		return c;
 	}
 }
