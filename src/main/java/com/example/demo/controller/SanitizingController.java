@@ -77,11 +77,7 @@ public class SanitizingController {
 
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT id,name,rating,rating_count,address,"
-<<<<<<< HEAD
             		+ "verified,ST_AsGeoJSON(location) from sanitizing_mumbai where ST_DWithin(location::geography,ST_GeomFromText('POINT("+longitude+" "+latitude+")')::geography,"+dist+");" );
-=======
-            		+ "verified,ST_AsGeoJSON(location) from sanitizing_mumbai where ST_DWithin(location::geography,ST_GeomFromText('POINT("+longitude+" "+latitude+")')::geography,"+ConnectionModel.FIVE_KM+");" );
->>>>>>> 71c9a3613c1a82c5e35c656038b1953f37d49861
             
             while ( rs.next() ) {
                int id = rs.getInt("id");
@@ -104,7 +100,6 @@ public class SanitizingController {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
          }
     }
-<<<<<<< HEAD
 	
 	@GetMapping("/closest")
     public ResponseEntity<List<ModelType>> getAllClosestAscending(@RequestParam(defaultValue="0.0") double longitude,
@@ -149,6 +144,3 @@ public class SanitizingController {
          }
     }
 }
-=======
-}
->>>>>>> 71c9a3613c1a82c5e35c656038b1953f37d49861
