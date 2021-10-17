@@ -60,11 +60,7 @@ public class SanitizingController {
 	
 	@GetMapping("/nearest")
     public ResponseEntity<List<ModelType>> getAllNearest(@RequestParam(defaultValue="0.0") double longitude,
-<<<<<<< HEAD
     		@RequestParam(defaultValue="0.0") double latitude,@RequestParam(defaultValue="2000") double dist){
-=======
-    		@RequestParam(defaultValue="0.0") double latitude){
->>>>>>> 71c9a3613c1a82c5e35c656038b1953f37d49861
     	List<ModelType> temp = new ArrayList<ModelType>();
     	 Connection c = null;
          Statement stmt = null;
